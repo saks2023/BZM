@@ -1,1 +1,7 @@
-qwfqw
+name: GitHub_Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Github-action-demo."
