@@ -14,17 +14,17 @@ jobs:
   github-action:
     runs-on: ubuntu-latest 
     steps:
-    -	name: Checkout
-      uses:  actions/checkout@v2.3.4
-    -	name: Run Blazemeter test
-      uses: BlazeRunner-BZR/Github-Action@v8.1 
-      id: run-test
-      with:
-        apiKey: ${{env.apiKey}} 
-        apiSecret: ${{env.apiSecret}} 
-        createTest: ${{env.createTest}}
-        inputStartFile: ${{env.inputStartFile}} 
-        testName: ${{env.testName}}
-        projectID: ${{env.projectID}} 
-        continuePipeline: ${{env.continuePipeline}} 
-        showTailLog: ${{env.showTailLog}}
+     - name: Checkout
+       uses:  actions/checkout@v2.3.4
+     -	name: Run Blazemeter test
+       uses: BlazeRunner-BZR/Github-Action@v8.1 
+       id: run-test
+       with:
+         apiKey: ${{env.apiKey}} 
+         apiSecret: ${{env.apiSecret}} 
+         createTest: ${{env.createTest}}
+         inputStartFile: ${{env.inputStartFile}} 
+         testName: ${{env.testName}}
+         projectID: ${{env.projectID}} 
+         continuePipeline: ${{env.continuePipeline}} 
+         showTailLog: ${{env.showTailLog}}
