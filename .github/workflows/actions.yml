@@ -1,0 +1,30 @@
+name: github-action 
+env:
+  apiKey: "cddf0dfafd0cba9ad2b9898d" 
+  apiSecret: "0641ec8a489bd74815a6ee732ead96af5cbd039f8c16bda5e90586ab037f338f0b086f26" 
+  createTest: "true" 
+  inputStartFile: ".github/workflows/DbankDemo.jmx" 
+  testName: "githubdemo" 
+  projectID: "467851"
+  continuePipeline: "false" 
+  showTailLog: "false"
+
+on: push 
+jobs:
+  github-action:
+    runs-on: ubuntu-latest 
+    steps:
+    -	name: Checkout
+      uses:  actions/checkout@v2.3.4
+    -	name: Run Blazemeter test
+      uses: BlazeRunner-BZR/Github-Action@v8.1 
+      id: run-test
+      with:
+        apiKey: ${{env.apiKey}} 
+        apiSecret: ${{env.apiSecret}} 
+        createTest: ${{env.createTest}}
+        inputStartFile: ${{env.inputStartFile}} 
+        testName: ${{env.testName}}
+        projectID: ${{env.projectID}} 
+        continuePipeline: ${{env.continuePipeline}} 
+        showTailLog: ${{env.showTailLog}}
