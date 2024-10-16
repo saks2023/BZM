@@ -1,6 +1,7 @@
 name: apikey
 env:
-  apikey: ""
+  apiKey: "cddf0dfafd0cba9ad2b9898d" 
+  apiSecret: "0641ec8a489bd74815a6ee732ead96af5cbd039f8c16bda5e90586ab037f338f0b086f26"
   name: "API"
   expiry: 365
 on: push
@@ -13,6 +14,8 @@ jobs:
       with:
         url: 'https://a.blazemeter.com/api/v4/user/api-keys'
         method: 'POST'
+        apiKey: ${{env.apiKey}} 
+        apiSecret: ${{env.apiSecret}} 
         # username: ${{ secrets.AWX_USER }}
         # password: ${{ secrets.AWX_PASSWORD }}
         customHeaders: '{"Content-Type": "application/json"}'
