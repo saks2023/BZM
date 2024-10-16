@@ -1,0 +1,19 @@
+name: apikey
+env:
+  apikey: ""
+  name: "API"
+  expiry: 365
+on: push
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: 'https://a.blazemeter.com/api/v4/user/api-keys'
+        method: 'POST'
+        # username: ${{ secrets.AWX_USER }}
+        # password: ${{ secrets.AWX_PASSWORD }}
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: '{"name":"${{env.name}}","expiry":${{env.expiry}}}'
