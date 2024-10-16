@@ -14,8 +14,8 @@ jobs:
       with:
         url: 'https://a.blazemeter.com/api/v4/user/api-keys'
         method: 'POST'
-        apiKey: ${{env.apiKey}} 
-        apiSecret: ${{env.apiSecret}} 
+        username: ${{env.apiKey}} 
+        password: ${{env.apiSecret}} 
         # username: ${{ secrets.AWX_USER }}
         # password: ${{ secrets.AWX_PASSWORD }}
         customHeaders: '{"Content-Type": "application/json"}'
